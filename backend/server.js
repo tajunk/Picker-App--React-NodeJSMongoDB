@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dbConfig = require('./app/config/db.config');
 
+const path1 = __dirname + '/app/views/';
 const app = express();
+
+app.use(express.static(path1));
 
 var corsOptions = {
   origin: 'http://localhost:8081',
@@ -37,9 +40,8 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the application.' });
+app.get('/', function (req, res) {
+  res.sendFile(path + 'index.html');
 });
 
 // routes
