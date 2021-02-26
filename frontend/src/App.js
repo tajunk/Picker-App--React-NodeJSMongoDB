@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, HashRouter } from 'react-router-dom';
 import './App.css';
 import logo from './logo.png';
 import AddItem from './AddItem';
@@ -44,7 +44,7 @@ function App() {
     dispatch(logout());
   };
   return (
-    <Router history={history}>
+    <HashRouter history={history}>
       <div>
         <nav className='navbar navbar-expand navbar-dark bg-dark'>
           <a href='/ItemsList' className='navbar-brand'>
@@ -137,7 +137,7 @@ function App() {
           </Switch>
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 export default App;
